@@ -1,0 +1,698 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>The Good Jar </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7a79255c-b15c-44c8-b117-9223ce4aa1f6" class="page sans"><header><img class="page-cover-image" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/milan-popovic-YjN1l87BUOk-unsplash(1).jpg" style="object-position:center 51.24999999999999%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🏺</span></div><h1 class="page-title">The Good Jar </h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">January 1, 2023 - (foundations) getting laid </summary><div class="indented"><p id="f1546082-8c73-4f03-b860-5704929b4631" class="">I spent my first new year&#x27;s with a friend. We didn&#x27;t do much but what we
+ did was memorable. I set a goal that I&#x27;m planning to adhere to - 
+2500kms on foot this year. Christmas was a memorable one too with my 
+first unexpected gift - two tubes of sunscreen - helping me become even more of a creep. I also 
+gave my first actual gift, a single Dark Fantasy cookie, without the 
+compulsion or advice of my parents. It was a lot of fun to mess with my 
+friends and convince them that I&#x27;ve been with a woman 😂.</p><p id="35a80eb0-d5dc-434c-8b7d-e462a21a9abb" class=""><strong>Songs of the week - Lonely Nights by LEISURE and death bed (coffee for your head) by Powfu</strong></p><figure id="bf410d6f-1f5a-4f8b-b0bb-461f3fbf6cfd" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20221224_114647169.jpg"><img style="width:3472px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20221224_114647169.jpg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">January 8, 2023 - preparing for failure </summary><div class="indented"><p id="7cafd383-54b7-436d-995c-dcf004cc3202" class="">I&#x27;ve prepared for an exam for the first time in my living memory. I&#x27;ve 
+missed a lot of things, but imagining the confused faces of my 
+classmates when they answer their viva will give me solace to no end. 
+I&#x27;ve still kept up the game with High and some of my other friends and 
+I&#x27;ve sent a screenshot of my two hour long chat with perp about her 
+future. High genuinely believes I&#x27;ve got someone 🥲. I&#x27;ve also finished 
+my english project and I&#x27;ve included perp in the acknowledgement. It was
+ a random decision after noticing how much i missed her while she was 
+sleeping soundly for the first time in weeks. It&#x27;s something I do not 
+regret now.</p><p id="afa22182-fd91-404f-8c8f-f24ba920a632" class=""><strong>Songs of the week - Blossom by b/t and I&#x27;m Just Stupid by Maya Delilah</strong></p><figure id="a1bfe7cb-5b3d-4980-99ac-b28353c4c9e0" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/jan_8.png"><img style="width:1020px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/jan_8.png"/></a></figure><p id="2d04e43a-f96b-477f-8e0c-bfa90a0eff6e" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">January 15, 2023 - shayar ban gaya</summary><div class="indented"><p id="446beb23-bd42-4a60-a5e2-3cd2a22384eb" class="">Perp finally opened up a little more to me. She&#x27;s still cautious about change but she&#x27;s doing better. She wrote her Social and Hindi exams without her par for the course preparation. She was a bit tensed for both but is relaxing a little as she prepares for math.</p><p id="10ccb61d-8dab-416b-8698-86e8e2555b70" class="">
+</p><p id="17fca673-a079-4afa-9541-2056c7fa37e7" class="">As for me, I did my longest walk this week and I&#x27;m happy for that. I also wrote my first board exam!</p><p id="83c99b45-990f-4280-a861-05494bc0126e" class="">However, my crowning achievement this week was getting perp to sleep for a full twelve hours at night. Damn you perp; always taking my crowns.</p><p id="f15a658a-598f-4d9c-bf1f-601bda1e0c86" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Game by Joey Howard and Melancholy Mood by Emi Choi </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="3e94d9de-9155-49f4-bba3-25b1cb3cf106" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-01-15-20-39-55-342-edit_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-01-15-20-39-55-342-edit_com.whatsapp.jpg"/></a></figure><p id="66714bff-9603-4837-a064-84b5ef616ed2" class="">PS - She puked after this🤦. And she also gave up that she had “chunky” periods. At least she&#x27;s doing better now ig.</p><p id="ed5baa55-e3fe-44dd-8456-b1b6bf1ecbdd" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">January 22, 2023 - walking the path of idiocy </summary><div class="indented"><p id="07b8e736-1605-4559-8b7b-bbda839ea796" class="">I walked with perp today for the first time! It was a short walk but she enjoyed it nonetheless. High and Dhanvithraj congratulated me on my girl 😂. I also did my longest continuous run of about 1km today. I am also sticking to my routine well, getting up at 4 and sleeping at 10. </p><p id="c8cd3ae2-9006-4069-b472-af2ef0614439" class="">The rest of the week was uneventful except for my two board practical exams. Phys viva didn&#x27;t go well but everything else was fine. I also did salt analysis for 8 others during my chem exam. That gives me 240/30 so I&#x27;ve got 800% marks in chem practicals 😂.</p><p id="4a6df4bc-670d-4a28-8c30-e9399a428c03" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Green Tea &amp; Honey by Dane Amar, Sweet Talker by Sarah Hemi and parachute by John K</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="c908f67c-3a6a-4fa6-a7f2-e005adc21d24" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-01-22-19-06-32-044_com.strava.png"><img style="width:1017px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-01-22-19-06-32-044_com.strava.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">January 29, 2023 - scurrying chicken </summary><div class="indented"><p id="4f92f5fd-a7ae-46bd-a1a2-cb640b838129" class="">Today is actually the 30th and I&#x27;m dead tired. I did my longest run today at 8.15km. i got perp into some running too although it&#x27;s basically like getting a plump chicken to run. Perp got her preboard results and did really well in them. He mom isn&#x27;t happy tho. And she&#x27;s losing my respect every time she pulls stunts like this 🙄.</p><p id="57c1f30c-7c70-4c59-b5e1-bea394658e25" class="">Perp went to Manipal to ask for admissions and she did well. High got some epic texts in too😂</p><p id="1915e117-d211-4955-a4f4-29d0b66dcdf5" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Space Makes Me Sad by Fiji Blue, I&#x27;m Good by Ebony Loren and  Almond Eyes by Clavita</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="f1a700c0-beb1-414e-ae1e-7747e9d0f097" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-01-30-13-53-18-170_com.google.android.apps.messaging.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-01-30-13-53-18-170_com.google.android.apps.messaging.jpg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">February 5, 2023 - Adios</summary><div class="indented"><p id="3fe41d48-baff-439e-bd62-87ceadedbcf1" class="">A busy week! Farewell, Perp’s first curry, my first 3 min run. Hooo it was exhausting!</p><p id="21702773-16e2-411f-b3e3-17b16bd3580c" class="">Firstly, farewell. I did what I always wanted to do. Fuck mccs! (No i didn&#x27;t literally fuck mccs) i took many funny photos and videos, most notably of perp dancing. Then I took some memorable ones. Apples, Srishti, Ronan, Sudhan… all will be missed. Not sorely missed as I&#x27;ve spent more than enough time with them. The farewell video was shite. What a way to send off the most technologically competent batch yet. I also wrote a poem for the saint and she posted it on her story and also asked me to write it and get a signed copy for her. Have to collaborate with perp for that one.</p><p id="05105efd-c91e-4fcc-ade5-1086a764c156" class="">Then comes Perp&#x27;s curry. She did well considering its her first curry. She thinks I&#x27;m lying but i still stand by my review. My 3 mins of running didn&#x27;t feel that bad actually. I expected it to be worse.</p><p id="8d12ca00-7fc5-4319-98df-221939e45839" class=""><strong><strong><strong>Songs of the week - Overflow by The Wildcardz, Far Away by Easha and Eternal Sunshine by Grace Aimi</strong></strong></strong></p><figure id="612680c4-8174-4838-ad95-3df3f8a0efc1" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-05-22-08-28-386_com.instagram.android.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-05-22-08-28-386_com.instagram.android.jpg"/></a></figure><figure id="e180340f-5f0b-435d-bf0f-43ece322b2d6" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-05-21-31-59-934_com.whatsapp.png"><img style="width:1060px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-05-21-31-59-934_com.whatsapp.png"/></a></figure><figure id="3dd5e86c-4865-4b50-9f92-ac0f79cd5601" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG_20230204_212421_792.jpg"><img style="width:684px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG_20230204_212421_792.jpg"/></a></figure><figure id="45e94eb6-50fd-4df2-94f1-0a1178cd3254" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230204-WA0094.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230204-WA0094.jpeg"/></a></figure><figure id="0f4e7a2a-ccb2-4111-8f27-09023115a14d" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230204_173826617.jpg"><img style="width:4624px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230204_173826617.jpg"/></a></figure><figure id="266197d2-b8c6-43f3-bb39-3072c45e0656" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230204_132956737.jpg"><img style="width:3120px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230204_132956737.jpg"/></a></figure><figure id="6319fdf0-8b29-41ca-985c-80166fab444f" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230204_130553848.jpg"><img style="width:3472px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230204_130553848.jpg"/></a></figure><figure id="86e4481a-c8ff-4ba2-9df7-2a306c7de903"><div class="source"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230204_135207239.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2d1be06-317a-4c55-979d-8f4ad3868506/PXL_20230204_135207239.mp4</a></div></figure><figure id="79576ce4-d100-4155-ac69-c3a602e38b10"><div class="source"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/VID-20230204-WA0300.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5160e7f4-3b13-4c25-a557-6287fb1ed326/VID-20230204-WA0300.mp4</a></div></figure><figure id="95614ab1-f0cd-4cd6-95b9-d79ea1fbcad2" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-06-07-49-22-864-edit_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-06-07-49-22-864-edit_com.whatsapp.jpg"/></a></figure><figure id="0f20a1f0-07c8-4130-bbfe-ebbeef7f67c2" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-01-19-47-00-382_com.whatsapp.png"><img style="width:716px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-01-19-47-00-382_com.whatsapp.png"/></a></figure><figure id="ec96cf06-542b-4e8d-a1ca-4527f42468a5" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-01-19-52-10-408_com.whatsapp.png"><img style="width:756px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-01-19-52-10-408_com.whatsapp.png"/></a></figure><figure id="7881ed04-9645-4d89-a427-df864cc88e9d" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-01-19-50-45-923_com.whatsapp.png"><img style="width:622px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-01-19-50-45-923_com.whatsapp.png"/></a></figure><figure id="2c14af35-e5a6-4013-9e6f-52cf264681f6" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-01-19-47-49-363_com.whatsapp.png"><img style="width:825px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-01-19-47-49-363_com.whatsapp.png"/></a></figure><figure id="e6058d56-95da-4451-bfeb-a0b580384964"><div class="source"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/VID-20230201-WA0074.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f5370ea-c835-4412-b797-e08fd46cfe3f/VID-20230201-WA0074.mp4</a></div></figure><figure id="0727488f-ecb3-47ad-be01-671548fe19c8"><div class="source"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/VID-20230203-WA0038.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ff30d1a1-1ca0-4c6e-8236-376cc5ff56a6/VID-20230203-WA0038.mp4</a></div></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">February 12, 2023 - becoming insectivorous </summary><div class="indented"><p id="cb7df0dc-7191-4fdd-8a14-82f03ee8747d" class="">Let&#x27;s start with a fact: I just managed to inhale a mosquito.</p><p id="1771cf1d-e64a-475f-9938-3245ea9acf06" class="">Moving on, Perp got to know about important questions for the first time and is mind blown by them. I made Naan today and it came out pretty well. Also, 3 exams happened. Eng- wasn&#x27;t too bad, but according to the saint, no one scored above 70/80 ☠️. Phys was kinda bad, but better than last time so I&#x27;m happy. Chem was kinda good. I&#x27;m tired so I&#x27;m not writing much. I just ran 5 mins straight.</p><p id="7afef7a2-7ccb-469d-9716-28ab5f7a0d74" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Hail Mary by Jesse Barrera, Lights Turn Low by planet girl, Love! By Gloria Tells and Dormer/Window by Galdive. Lot of good songs this week.</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="86a5416c-efa8-41b5-9251-1441e2ec19d0" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-12-06-56-04-788_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-12-06-56-04-788_com.whatsapp.jpg"/></a></figure><figure id="8f4a1622-9340-4438-9c29-efddf55ef072" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-12-09-41-18-862_com.whatsapp.png"><img style="width:1024px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-12-09-41-18-862_com.whatsapp.png"/></a></figure><figure id="e5c5b318-1477-4ec4-8a88-6b8529c1de14" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-06-07-49-22-864-edit_com.whatsapp%201.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-06-07-49-22-864-edit_com.whatsapp%201.jpg"/></a></figure><figure id="a51aac9d-b721-429a-9f5e-317159d8b04c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230205_185505406.jpg"><img style="width:4624px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230205_185505406.jpg"/></a></figure><figure id="b9d22b71-c6b3-4d63-8054-2dab38d60d9b" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-08-21-15-58-772_com.whatsapp.png"><img style="width:958px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-08-21-15-58-772_com.whatsapp.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">February 19, 2023 - sick run bro!</summary><div class="indented"><p id="dccdcfee-3529-4ab8-af5a-0a6638e48651" class="">I am recovering from a cold and my performance has taken a jump off a cliff. I&#x27;m really tired now and just want to go to bed. Buttttttt, ig i got my first ‘hot girl tries to flirt with me’ moment today. Try to see if you remember it. We went out on a scenic walk today, it was nice, look at pictures below. You were busy the whole week and I&#x27;ve finally convinced your mom to go to Padushedde! We&#x27;re supposed to be going this week but idk if we will. Your video with Walter Nandalike came out this week and you look ridiculous. Idk what&#x27;s happened to me today, I&#x27;m completely drained. Ig i better sleep now. Gn Ms Socrates. Oh yea valentine&#x27;s happed too! I took her out on a walk and gave her a lemon candy. It was supposed to last 15 mins but she&#x27;s golfed it down in 15 secs</p><p id="4b87ba94-b70b-4fcf-86f3-ac4029ea24bc" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Story Ends and Sweet Sugar Getaway by Galdive</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="4ed1f7d7-7a0d-4c93-ac43-2ee1548355b5" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-14-15-25-02-648_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-14-15-25-02-648_com.whatsapp.jpg"/></a></figure><figure id="d126dbff-e5a9-4dfe-89a7-562244c4bb3d" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-15-18-03-55-154_com.strava.png"><img style="width:982px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-15-18-03-55-154_com.strava.png"/></a></figure><figure id="57342035-73d7-4743-bb61-f5db5f7d3c72" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-17-13-59-56-696_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-17-13-59-56-696_com.whatsapp.jpg"/></a></figure><figure id="ddc1ec2e-bc12-48f1-829d-07a140ce0a77" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230214_174708937.jpg"><img style="width:3120px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230214_174708937.jpg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">February 26, 2023 - the devil sleeps with the most peace</summary><div class="indented"><p id="6edcb8a1-f283-49c5-b1c8-f6b27b981c4b" class="">I wrote my first board exam. English could have been easier but I digress🤷. Perp is writing her English paper too and she&#x27;s VERY prepared (sarcasm). I can say I&#x27;ve recovered from my cold completely as I&#x27;ve gone on a fair number of runs this week. Including a biggie, a 10 min run from KPT to TMA Pai through Kodial Guttu, that made me want to vanish but in retrospection, I&#x27;m proud of myself. My results came, 80% this time, I&#x27;m meh. Physics and maths pulled me down and I&#x27;ve got to work on those for the boards. With my new found fitness, I&#x27;m starting to like shirts. That&#x27;s been my week and now I&#x27;m late for my bedtime 🤦.</p><p id="755e051a-b425-4457-be00-78d77c61e547" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Candy Heart by The 4411, To Exist With You by Madilyn Mei and OOP! by NYK</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="6a8259c3-20f2-4c36-b4f7-634c131d81a4" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-02-26-12-43-11-959.jpg"><img style="width:900px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-02-26-12-43-11-959.jpg"/></a></figure><figure id="f88fb1ae-893a-4358-86ac-980c6dc15376" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-23-19-10-08-522_com.google.android.apps.messaging.png"><img style="width:1026px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-23-19-10-08-522_com.google.android.apps.messaging.png"/></a></figure><figure id="05dc9949-d839-4b70-bca0-4003675aa969" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-22-07-25-51-524_com.instagram.android.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-22-07-25-51-524_com.instagram.android.jpg"/></a></figure><figure id="c6d3ec1a-8217-4dd0-a24b-8a5a56da2abf" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-25-20-59-10-498_com.instagram.android.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-25-20-59-10-498_com.instagram.android.jpg"/></a></figure><figure id="387c11c0-8c94-4738-8a67-5a0bf9ea8702" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-26-08-36-53-251_com.whatsapp.png"><img style="width:521px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-26-08-36-53-251_com.whatsapp.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">March 5, 2023 - running from physics boards</summary><div class="indented"><p id="97687f0c-c5e0-4934-bb3f-ab7e1bc2b282" class="">Wohooooo! Physics boards are over (writing this on March 6). They were horribly hard but I managed my best. I&#x27;m happy for that.</p><p id="23c23e64-a614-49ba-86c1-f61330f86f44" class="">In other, happier news, apparently Perp&#x27;s paper was hard too, i.e. she&#x27;s getting 95% 🙄. I did my longest run yesterday, 20 mins, maryhill to kpt to Cochin bakery. It definitely feels like a run now, not just a jog while walking. I walked from BGS to home and I&#x27;m sleepy so this is all for today. PS - I&#x27;m learning Spanish on Du</p><p id="6a2c6ea0-7006-49f8-ac28-0ccb267e307e" class=""><strong><strong><strong><strong><strong><strong>Songs of the week - Sofia by Patrick Rosal and Oh Baby! by Matthew Ifield</strong></strong></strong></strong></strong></strong></p><figure id="2a642dc8-6540-4da1-8f45-0f037e37083c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-28-05-56-38-231-edit_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-28-05-56-38-231-edit_org.thoughtcrime.securesms.jpg"/></a></figure><figure id="02f25cf2-dfa0-45b6-bff0-57741489a29c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-27-14-39-32-509_org.thoughtcrime.securesms.png"><img style="width:1016px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-27-14-39-32-509_org.thoughtcrime.securesms.png"/></a></figure><figure id="39f7336d-39a1-4e63-85b6-bba3c941f027" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-27-14-39-07-346_org.thoughtcrime.securesms.png"><img style="width:785px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-27-14-39-07-346_org.thoughtcrime.securesms.png"/></a></figure><figure id="cdd3e1ba-43a6-45ea-bc17-137919fd435a" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-27-18-34-56-455_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-02-27-18-34-56-455_org.thoughtcrime.securesms.jpg"/></a></figure><figure id="30a2e10f-1998-482b-adbc-36ce4ec78abd" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-05-07-42-15-457_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-05-07-42-15-457_org.thoughtcrime.securesms.jpg"/></a></figure><figure id="e5be4ff7-015f-4af7-bb84-f0813d2a95bc" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-04-14-50-42-113_org.thoughtcrime.securesms.png"><img style="width:1023px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-04-14-50-42-113_org.thoughtcrime.securesms.png"/></a></figure><figure id="9f0dddd6-8b7d-4f07-9b02-bfc0ffe3ee3b" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-06-15-24-01-329-edit_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-06-15-24-01-329-edit_org.thoughtcrime.securesms.jpg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">March 12, 2023 - good music </summary><div class="indented"><p id="b1460df8-cbae-4643-ba53-16810411a42c" class="">Oof what a day it was. Your mom blew up and curbed your permission to talk with me. You acted like it&#x27;s was the end of the world lol. But anyway, we found our ways to communicate the scandalous comments and suggestive ideas. You&#x27;re at the pub with your mom as i write this and apparently both of you are mending thing which is good. As for me, I&#x27;m back after a short stint with runners knee. I did a high paced run from kpt to padil. Then a sprint home from maryhill. I&#x27;m pretty happy with my speeds and my knee isn&#x27;t paining. I learnt a lot of bio today and my productivity was off the roof. My week went well including that i had to walk to bgs and I&#x27;m not going any other way to my exam. I&#x27;m so happy rn lol. There&#x27;s no reason why but like I&#x27;m just happy.</p><p id="061acbc8-2971-4039-979c-090e4762791b" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Dahlia by Isa, Trophy Shelf by M’Lynn, Daylight by JAIE, Marigolds by Early eyes, Have You Ever by mindfreakkk and Cotton Candy Clouds by Valntn </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="f5115f6d-ff7e-46d5-9306-6dfedf4bb70f" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-07-10-22-10-896_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-07-10-22-10-896_org.thoughtcrime.securesms.jpg"/></a></figure><figure id="bdad7355-bc82-4f21-ab10-079e9c3e4f2e" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-12-18-33-28-508_com.strava.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-12-18-33-28-508_com.strava.jpg"/></a></figure><figure id="13ff4898-0638-4ead-a180-049eb01c3505" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-12-18-03-11-159_com.strava.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-12-18-03-11-159_com.strava.jpg"/></a></figure><figure id="b393cb02-2bd0-45b8-b06a-50acca2c5d9c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-11-03-50-01-572_org.thoughtcrime.securesms.png"><img style="width:971px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-11-03-50-01-572_org.thoughtcrime.securesms.png"/></a></figure><figure id="c5143384-f416-4e38-b1a9-23295c3960fe" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-09-15-47-56-640_org.thoughtcrime.securesms.png"><img style="width:1008px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-09-15-47-56-640_org.thoughtcrime.securesms.png"/></a></figure><figure id="5bff22a1-6a6b-4ae1-8569-f04e56cfa6e5" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-07-17-25-08-325_com.spotify.music.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-07-17-25-08-325_com.spotify.music.jpg"/></a></figure><figure id="c0fad8c2-7079-40fd-983f-d18772e24725" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-05-07-45-40-060_org.thoughtcrime.securesms.png"><img style="width:680px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-05-07-45-40-060_org.thoughtcrime.securesms.png"/></a></figure><figure id="414a1058-1e76-4b61-99c6-b50a526cf7aa" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-12-20-56-55-467_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-12-20-56-55-467_org.thoughtcrime.securesms.jpg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">March 19, 2023 - YOLO phase </summary><div class="indented"><p id="bfa3d5f2-4946-45d3-82d5-1350311a918c" class="">Oh my! You&#x27;ve decided to start smoking at 18 and have a kid asap 😂. So relieved I was able to talk you out of that. My board exams ended and I&#x27;m a free bird!!!! Not really, I&#x27;m still learning but I&#x27;m learning stuff i didn&#x27;t learn in 11th and it feels like I&#x27;ve opened a third eye lol. I also started a podcast this week and perp is more excited than me🤦. Alsoooooo, I only lost 1 fucking mark in biology. Just a single damned mark. I&#x27;m still salty. And i can&#x27;t even take revenge as perp has my paper. That&#x27;s about all, I&#x27;ll let the photos and videos do the talking now.</p><p id="eafd8399-bc6e-4723-a24c-761014d81894" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Pretty Love by Iris Temple, Irises by Jolieanne, Navy Blue by Mindfreakkk and Cherry Cola by Kuwada</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="01356813-4c08-4eb6-b391-79a65363ff65" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-13-18-43-18-125_com.strava.png"><img style="width:948px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-13-18-43-18-125_com.strava.png"/></a></figure><figure id="a7a5c4c2-9698-4777-9ed1-648702ef8e85" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230316_163144209.jpg"><img style="width:4624px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230316_163144209.jpg"/></a></figure><figure id="0a3d722f-4600-453e-9cb6-47cd3f317062" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-13-04-08-18-351-1.jpg"><img style="width:900px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-13-04-08-18-351-1.jpg"/></a></figure><figure id="2ba59447-5053-478a-955c-c2167368b8b4" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-14-05-07-45-205-1.jpg"><img style="width:900px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-14-05-07-45-205-1.jpg"/></a></figure><figure id="433d5439-89ee-44ef-8fe9-4a0d3f24b0a2" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-14-16-43-15-654-1.jpg"><img style="width:1200px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-14-16-43-15-654-1.jpg"/></a></figure><figure id="0b6fc5f5-6b66-4d19-bbe5-9aac062ab130"><div class="source"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-18-12-49-08-777.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/976d8bee-91c9-4cc0-83f2-6303d42e0111/signal-2023-03-18-12-49-08-777.mp4</a></div></figure><p id="c9049cf0-b91a-4c02-a7f1-47ad7b1edea2" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">March 26, 2023 - walking to my suhaagrat </summary><div class="indented"><p id="a40bb435-2dbd-4ae4-81fb-91791adb5794" class="">I felt embarrassed while walking this week because of you. I did two more 20-minute runs, which my knees are regretting, but I&#x27;m not. I got violently sick this week, which apparently made me very horny. You dealt with the consequences. I didn&#x27;t get much studying done because the festivities at the temple took up a lot of time. I&#x27;m considering converting to that religion. My arches are still recovering from the trauma of last night. There isn&#x27;t much else of interest to write about here, just some photos.</p><p id="09341800-dcdd-4cfc-aa53-cd64e433bd7a" class="">Apparently, my memory is useless. I have some things to type now. For one, i went on a moun vrath this week. You lasted only 3 hours 😂. But that moun vrath was effective as you made an egg bhurji that Paul apparently really liked. I also managed to get you to start running this week, let&#x27;s see where you end up by the end of the year. You finished your board exams too and now you&#x27;re going to launch a drawing course. That&#x27;s all.</p><p id="7832b7b6-c99d-451f-a50e-2cc2879a33b3" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week: Halfway There by Jolianne, dreamy night by Us The Duo, warm - English Version by Junggigo IF I DON&#x27;T TEXT YOU FIRST by Tiffany Day, Constant by Jesse Barrera and Autumn Breeze by JIDA</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="b578c876-fbef-45db-b441-0ae9d9a23d89" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-23-18-29-18-660.jpg"><img style="width:1201px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-23-18-29-18-660.jpg"/></a></figure><figure id="22f7f352-56b0-4f5e-8deb-afd5674f5718" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-26-09-46-45-699-edit_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-26-09-46-45-699-edit_org.thoughtcrime.securesms.jpg"/></a></figure><figure id="28dc6591-b323-4f75-8763-fe29c49b51fa" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-26-09-44-24-390_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-26-09-44-24-390_org.thoughtcrime.securesms.jpg"/></a></figure><figure id="36bbc467-8259-4882-af92-33c69b791b9f" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-26-15-52-31-033_com.duolingo.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-26-15-52-31-033_com.duolingo.jpg"/></a></figure><figure id="d5e3a948-ebf6-4430-a34a-237846ca7356" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-26-05-30-59-830.png"><img style="width:691px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-26-05-30-59-830.png"/></a></figure><figure id="0a5d8140-c072-4e1c-8d54-1e2b24fe7a74" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-25-13-40-11-601.png"><img style="width:724px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-03-25-13-40-11-601.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">April 2, 2023 - stalking a wall</summary><div class="indented"><p id="ae194120-eb38-443c-a4fc-788694bd005e" class="">JEE dates are outtttt. Mine&#x27;s on 10th. I have horrible preparation. I would be surprised if I get more than 85 percentile.</p><p id="63ae930a-f0bf-4b12-9f52-14a03430231b" class="">Anyway, aside from useless news, I did some more 15+ min runs this week and you apparently did your first run today!!! I&#x27;m still waiting for updates on that. You launched your course this week and also got hired by a school to conduct some classes at their summer camp.</p><p id="96d91fa3-8746-4cc6-8be9-e26620f9bd1f" class="">I stalked you a couple of times this week and I swear you don&#x27;t have any sense of self preservation. You decided to almost get kidnapped by two guys. April fools happened too and you scared me out of my wits. Vomiting blood, internal bleeding and all kinds of stuff. Jokes on you though, I managed to fool you and high in one go. </p><p id="2d0fc21e-77a3-48a2-991c-762a1d5ef793" class="">You got stalked today too while walking with Paul. Both of you were awestruck by my “vanishing skills”😂</p><p id="a4025a61-46f7-424b-a522-3da6c259d166" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Hoodie by Lunadira, FAVOURITE by HUNJIYA,  Starting to by Wavelength and Futon by Ūla</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="4be497eb-d587-4f4e-804d-54b036c488c5" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-01-13-44-02-017_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-01-13-44-02-017_com.whatsapp.jpg"/></a></figure><figure id="d68e0c3c-c4c0-416c-92f6-d8134adde59d" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG_20230330_181014.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG_20230330_181014.jpg"/></a></figure><figure id="59867618-f513-456d-abb3-e99b64843523" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-29-14-07-41-242-edit_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-03-29-14-07-41-242-edit_org.thoughtcrime.securesms.jpg"/></a></figure><figure id="a67e7e07-dbe4-4950-8dc5-9f535acae800"><div class="source"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/VID_20230330_181004.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c174c500-2a40-4a48-a0a1-e0c6a687d4ee/VID_20230330_181004.mp4</a></div></figure><figure id="1b4ea1fc-082c-4850-a36e-92663d2f5259" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-02-20-21-50-690-edit_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-02-20-21-50-690-edit_org.thoughtcrime.securesms.jpg"/></a></figure><figure id="add6675c-6058-418e-83f4-4a959cf9050e" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-02-20-23-34-891-edit_com.google.android.apps.messaging.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-02-20-23-34-891-edit_com.google.android.apps.messaging.jpg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">April 9, 2023 - ribbons and hairbands</summary><div class="indented"><p id="8cae7383-3156-4246-9daf-f760563d63e8" class="">I&#x27;m tired today. You apparently wore a hairband and a ribbon today and I asked for a photo. Got denied and challenged to hunt you down. Succeeded 🥳</p><p id="ff5f42ba-d1ad-4fbe-a0ee-2f09f6bc76f1" class="">You also went offline for a day this week, and I still do not know why. There&#x27;s a problem tho, I forgot to complete this entry last week and now my short term brain has forgotten everything 😭 I go through my gallery to try and snatch some memories back.</p><p id="b7d89f23-2351-4be9-ab1f-14dd84a47236" class="">So, I too a mock test on 4th April for JEE and got 146. I then wrote my actual JEE on 10th</p><p id="9da277b7-db66-47d2-b5e7-5c45a3a9c3af" class="">This week was a tumultuous one, Srishti is in Kota studying now, I did well in the second round of IOEL, you went dark, did well in the mock test. Bruh a lot happened. 🤷 </p><p id="6b0d5ab6-10c4-4bb5-b02f-dd29b00413b3" class=""><strong>Songs of the week - Body by Sinéad Harnett, Céline by Gallant, If Only by Raveena </strong></p><figure id="d0681955-ad06-4c21-a81e-435a997a2e9a" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-09-19-33-06-356_com.strava.png"><img style="width:898px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-09-19-33-06-356_com.strava.png"/></a></figure><figure id="1b0c67c4-8cbd-4fe4-9c66-e0d8ee128636" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-09-20-17-47-613_com.strava.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-09-20-17-47-613_com.strava.jpg"/></a></figure><figure id="cd8ab501-f3bc-465b-b840-3b778736f5eb" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-15-05-22-05-875_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-15-05-22-05-875_org.thoughtcrime.securesms.jpg"/></a></figure><figure id="8971e978-4ec9-4019-bbaf-b4454ba1d95a"><div class="source"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-04-05-10-19-29-515.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8c257f23-721a-42bc-9e49-fd194b3897d6/signal-2023-04-05-10-19-29-515.mp4</a></div></figure><figure id="14d3be69-0fba-47f4-ba8d-ffdb6b6ba42c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-03-05-06-43-579_com.android.chrome.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-03-05-06-43-579_com.android.chrome.jpg"/></a></figure><figure id="9e147f10-c13d-4f88-a90b-47323eb3d029" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-03-06-45-09-217_com.android.chrome.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-03-06-45-09-217_com.android.chrome.jpg"/></a></figure><figure id="08db1bc2-08ac-4b53-ba4f-89a89f81c73e" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-07-20-17-19-539-edit_org.thoughtcrime.securesms.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-07-20-17-19-539-edit_org.thoughtcrime.securesms.jpg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">April 16 &amp; 23, 2023 - knock knock</summary><div class="indented"><p id="ffed36de-f82f-4715-ac9f-850f80411768" class="">Idk but being this tired at the end of the day is a mood bruh. I&#x27;m doing two weeks together because this expert crash course sucks my day dry.</p><p id="2a563da7-47f7-49cc-bde0-ee35d189ee6f" class="">Anyway, our parents met yesterday, apparently my mom doesn&#x27;t like you knocking on my door twice.</p><p id="77d35952-f51f-4b5e-80f2-b9f0be063704" class="">We&#x27;re not allowed to walk together now 😭. Anyway, my JEE went meh, looking at 100 now. You registered for my seat at Manipal’s booking system. I finally gave the written poem to the saint. This is enough ig. I&#x27;m doing decently at my lessons in expert. I&#x27;ll let the photos and videos do the talking.</p><p id="7049863a-a139-49c3-abb7-6a3eb3a89744" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week(s) - Rush by Raveena, Simple Love by Lindsey Lomis, February Song by Melissa Poliner, Everything You&#x27;re Asking by Selamo, Lost To The Summer by THEHONESTGUY, San Pellagrino by Shane Garcia, roundabout by fcj, say it like you mean it by KALLITECHNIS, Sunday Morning by Pekoe, Long Way Home by Emma Sameth, Sunflower by Pauline Zoo Park, Can&#x27;t Get You Outta My Head by Justin Chen and Like I&#x27;m Home by CIRRRCLE</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="12f09050-d929-4748-b733-4afbb2d74b5f" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-11-04-26-13-011_com.instagram.android.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-11-04-26-13-011_com.instagram.android.jpg"/></a></figure><figure id="888c5827-d73f-4b46-ba97-207e581740eb" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-10-13-28-31-162_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-10-13-28-31-162_com.whatsapp.jpg"/></a></figure><figure id="7c624cd4-b0a4-4b1a-bf10-cbd414f173cb" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230417_175742553.jpg"><img style="width:3472px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230417_175742553.jpg"/></a></figure><figure id="d3fcb38a-421c-460c-9107-b834090d8d42" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG_20230422_085956.jpg"><img style="width:3472px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG_20230422_085956.jpg"/></a></figure><figure id="71538931-bc93-4ccd-8ec8-bbc9d82a9fbb" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230422-WA0001.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230422-WA0001.jpeg"/></a></figure><figure id="cc13dea6-2129-4d6c-96ae-b9ae12de266f"><div class="source"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230410_130817541.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d0e8aa70-032b-4c5d-8c98-5290b65b817e/PXL_20230410_130817541.mp4</a></div></figure><p id="ae1ccbc2-fb67-43d2-a1e0-139896140bd9" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">April 31, 2023 - ITs time to sit (that was a pun)</summary><div class="indented"><p id="50731d73-32c8-4101-bfd8-5def47a677be" class="">So two big changes happened this week, JEE results are out, 87.8 percentile 😂. Then my MET happened today, I got a 119/240 which according to my current predictions should land me an IT seat at least. Let&#x27;s see how wrong that is. </p><p id="f4f757b9-051b-4e94-a957-92966e03a895" class="">Then you got your sketch reference photos from the priest, your new uniform arrived, Yea nothing interesting happened this week.</p><p id="83eb44bb-3d26-4a34-afb6-dd0100a6cbc9" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Room for Two by xiv, moreofyou by ryan micah, I Wish You Love by Laufey, The World by Alec Wigdahl, You&#x27;re The Dream by sad boy with a laptop, Water Me by syd B, Motions by NOA, Wyd by Maesu and Silhouette by Indy June </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="e962c844-f504-4caa-a14d-a756b52aede4" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-04-29-19-46-08-017.jpg"><img style="width:1200px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/signal-2023-04-29-19-46-08-017.jpg"/></a></figure><figure id="a91cde8d-1699-4529-9960-5fb9b650c08b" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-29-06-27-33-526_com.whatsapp.png"><img style="width:979px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-29-06-27-33-526_com.whatsapp.png"/></a></figure><figure id="2f8cfee1-3400-4631-afcc-7cfc08f37657" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-29-10-28-55-797_com.whatsapp.png"><img style="width:1040px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-29-10-28-55-797_com.whatsapp.png"/></a></figure><figure id="96123f1f-6077-4d57-827f-91a80a51fcff" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-29-13-01-09-562_com.whatsapp.png"><img style="width:997px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-29-13-01-09-562_com.whatsapp.png"/></a></figure><figure id="7a75d0b3-b8a8-4194-a2c4-e0cc27743134" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-30-11-49-56-144_org.telegram.messenger.web.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-04-30-11-49-56-144_org.telegram.messenger.web.jpg"/></a></figure><figure id="9ae6d52a-00a1-427d-b6f3-96b8ca8c847d"><div class="source"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230425_191433115.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/09efe4e9-6ecf-4df3-9e19-4ed4b5960cc6/PXL_20230425_191433115.mp4</a></div></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">May 7 &amp; 14, 2023 - the backbencher tops</summary><div class="indented"><p id="4b3333a4-1793-4762-b60e-8d31f905e9fa" class="">So I forgot to write last week and now I&#x27;ve got to make up for it. NEET happened and it was fine. Looking at 430 marks ig. NUCAT happened too and I&#x27;ve got no idea what to expect. So the board results are out and I got 91.4% pretty satisfying. You got a shameful 95.4% but still came 3rd overall. A DESERVED 1 mark behind the 2nd rank. Srishti got 91.4% too surprisingly and we both were the only people to get that number in the school. What a weird coincidence. I DID BEAT OUT MY COMPETITION SO IM HAPPYYYYYY. Coming 2nd in Bio and 7th over-all is not that easy now that I think of it. Thats all I&#x27;ve got to say. Rylan failed bro I still can&#x27;t believe it.</p><p id="c10a10a3-6714-4bbe-81ca-fe6bb995371c" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Honey Mae by Jarlo Bäse, Bad Texter by Ryan Woods, Roses by Genevra Munoa, Up There In The Clouds by Sionya, Boyish by Noni and Seoul by Sofia Kay</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="b1616731-58e6-4782-9218-7736d21563fd" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-05-12-16-01-32-202_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-05-12-16-01-32-202_com.whatsapp.jpg"/></a></figure><p id="008223bc-b8f1-4ea1-bc88-fb133068819d" class="">You just got your marks</p><figure id="0f6f799a-049e-44cc-8a1e-aac8a9f90160" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-05-12-17-49-49-882_com.instagram.android.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-05-12-17-49-49-882_com.instagram.android.jpg"/></a></figure><figure id="b91ec2f8-8124-4290-92aa-5292be461313" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-05-12-11-50-05-131_com.digilocker.android.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-05-12-11-50-05-131_com.digilocker.android.jpg"/></a></figure><figure id="0a3e7531-0aa0-4b8a-be7d-2a1ecaa52e69" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/nse-3038795324080517534-1743814159.png"><img src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/nse-3038795324080517534-1743814159.png"/></a></figure><figure id="c1c2985e-f868-46b2-addb-c3900ae68cf3" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-05-02-20-50-47-866_org.thoughtcrime.securesms.png"><img style="width:811px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-05-02-20-50-47-866_org.thoughtcrime.securesms.png"/></a></figure><p id="0257f1ab-b5d4-4b49-a166-f4ec181431d8" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">May 21 &amp; 28, 2023 - booming businessman</summary><div class="indented"><p id="513b1e8b-3a2b-48d6-bba9-df267c217bea" class="">Today was Manipal&#x27;s second attempt. I got a 131. Not too high, but it definitely cements my place in Manipal. I also struck a deal with Mom. I will commute daily to Manipal and in return I will get a cycle. A FUCKING ROAD BIKEEEEEEE 🥳🥳🥳🥳🥳. FINALLY. I GOT WHAT I WANTED. I feel accomplished after these two years. Manipal was my last exam. In total, I wrote 7 exams, aced 6 of them only in JEE I got 88 percentile which is not bad. KCET also happened last week, 118/180 which is really good. So many of my friends are still unsure of their future. Almost none have thought about their finances. I feel glad to have done the groundwork. Even though nothing is concrete for me too, I know what to expect and I also have much less liquid capital than my friends so this was pretty much the only way out. Your akash classes started too and you had a trip to Mysore. that&#x27;s pretty much all I can recollect. Anyway, being the smartest kid in the whole community is definitely something I&#x27;m not going to believe. Wohooo. I did it. Time to cruise along on my cycle now. </p><p id="8ef1c23f-d759-42e6-9b05-e19c3bee5413" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - tastes like cigarettes by Masked Man, Bad Habits by We The Mongrels, Past Lives by TommyMuzzic, Minty Kisses by Lucian, Stay A Minute by Pilo, Perfect Playlist by Ellie Williams, Good Company by SOS, and Springtime by Linying</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="9fdd545d-54fe-4817-8453-92a9a44d6dfe"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure><figure id="79a78267-7177-47ac-be3e-cc964298fdf8"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure><figure id="ae17d8d1-4321-4b32-bbc2-ccba846fa9f5"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure><figure id="d035b5be-e6b8-4889-a29b-0edf0018c7b4"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure><figure id="52e81e33-714a-42b0-bd94-b747f64e40c6"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure><figure id="d5b14cdd-912d-412b-9d4e-1a7e5b21a43d"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure><figure id="4736b1c6-9874-4f84-b94b-67959ad4eb80"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">June 4, 2023 - sealing the deal</summary><div class="indented"><p id="d70e56c5-f6e0-4a99-a64f-b66e711d9666" class="">So I&#x27;m running a little late here, it&#x27;s 8 11 and my bedtime is in 20 mins ☠️ so I&#x27;m supposed to be getting a new road bike soon aka tomorrow, nothing else of note happened this week. I think. I&#x27;ll go with that as I need to have food now</p><p id="bdb20e44-d805-4637-a0a7-5a882f300cb7" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Amenaki by Sweet Willam, Maybe Baby by maye, so good by joan, Common Sense by d.r.w.s.</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="bf4167f7-2d3e-4fc9-80db-6ec915991692" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230529-WA0000.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230529-WA0000.jpeg"/></a></figure><figure id="640f47f5-9bde-4e35-8b08-c4448a53a5f1" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-03-22-18-34-174_com.google.android.apps.docs.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-03-22-18-34-174_com.google.android.apps.docs.jpg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">June 11 &amp; 18, 2023 - held hostage </summary><div class="indented"><p id="e788cbf3-db94-4545-b5f8-57d12570090b" class="">Oh boy was this an eventful two weeks. First off, you stopped talking to me for a week. Then I decided to go on an impromptu trip to Goa. Got a call that my cycle is ready for pickup at the most inopportune moment, got my marks card from the school, apparently they&#x27;ve lost my Olympiad certificates. Then all my results came.</p><p id="43d187a2-50db-4a50-badc-d79eb0cef8dd" class="">I got 1974 rank in Manipal, 1.66 lakh in neet, 3034 in KCET and NUCAT results are to be declared on 24th. I beat everyone except Benita. And I beat her in neet. I&#x27;m now feeling sad for my friends. Many of them are just feeling the reality set around them that they&#x27;ll have to pay a lot for below par education. Poor kids.</p><p id="c132a9d6-4058-4669-bbaf-4072d518d0f5" class="">And I think that&#x27;s all, I&#x27;ve got another day to add stuff anyway.</p><p id="6400c437-5116-4288-b0e0-2237d78ceacb" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the weeks - I&#x27;ve Been Thinking by Lily Williams, YOUlogy by Collin Selman, Hesitate by Curtis Cole, Dangerous Thing by Jay Warren, ok time by corner club, Freezing by syd B, either side by LOONY, Call You by babychair and Nostalgia by Ruby Doll</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="d457641f-2dfc-42b7-8abb-18732c3359df" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-17-22-23-23-526_com.whatsapp-edit.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-17-22-23-23-526_com.whatsapp-edit.jpg"/></a></figure><figure id="ecc74564-1331-4c06-851f-69bf25d23be5" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-14-18-31-01-241_com.instagram.android.png"><img style="width:1014px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-14-18-31-01-241_com.instagram.android.png"/></a></figure><figure id="c1247fa9-43a4-49f0-9ad4-2863f11c92af" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-14-05-14-15-744_com.google.android.gm.png"><img style="width:1008px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-14-05-14-15-744_com.google.android.gm.png"/></a></figure><figure id="d357b675-8574-4f93-8d6f-97de978503a2" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-14-07-37-10-990_com.instagram.android.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-14-07-37-10-990_com.instagram.android.jpg"/></a></figure><figure id="1ce0f7f6-437b-4bcb-8a1e-9162ca048420" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-09-07-44-19-595_com.canva.editor.png"><img style="width:814px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-09-07-44-19-595_com.canva.editor.png"/></a></figure><figure id="20e55475-495b-4675-a051-abfe2b8a76b0" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG_20230609_175008.jpg"><img style="width:3472px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG_20230609_175008.jpg"/></a></figure><figure id="648526a9-29c8-4fd8-8bc1-9c057d686fe9" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-16-19-49-47-569_com.strava.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-16-19-49-47-569_com.strava.jpg"/></a></figure><figure id="a070763d-b3ec-4d2e-a65b-c5d731ff942c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230610_164817572.jpg"><img style="width:3472px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230610_164817572.jpg"/></a></figure><figure id="cce233cd-9e85-43bc-adc8-12af714ef91d" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230610_175541078.jpg"><img style="width:3472px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230610_175541078.jpg"/></a></figure><figure id="6abb76da-5793-4c12-9e6e-d53124f062ed" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230608-WA0089.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230608-WA0089.jpeg"/></a></figure><figure id="d1fca62a-46ef-4cd1-b16a-28ed9cc64509" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230609-WA0023.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230609-WA0023.jpeg"/></a></figure><figure id="bc7e393d-64f9-4dda-b229-18923a4edc9c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230609-WA0037.jpeg"><img style="width:3840px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230609-WA0037.jpeg"/></a></figure><figure id="f080013a-3d65-4b8c-aebb-9472606d0040" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230609-WA0031.jpeg"><img style="width:3840px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230609-WA0031.jpeg"/></a></figure><figure id="efe0faf0-78a2-415a-b8a5-1e95157c7bba" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230608-WA0024.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230608-WA0024.jpeg"/></a></figure><figure id="33475522-d68c-40cd-9304-38a4dda6a70c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230610-WA0000.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230610-WA0000.jpeg"/></a></figure><figure id="80ceff21-7197-4529-b941-6d15a0e9e6fa" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230614-WA0017.jpg"><img style="width:1600px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230614-WA0017.jpg"/></a></figure><p id="859fc8ff-5cf2-44d7-9f5c-c72ef290d5a3" class="">Victory</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">June 25, 2023 - a place to sit</summary><div class="indented"><p id="5afb8ce6-0ed3-4485-be4e-d9d5ca8a35c7" class="">I&#x27;ve had one of my longest days in quite some time. I walked a lot today and also freaked you out by telling you my ankle was bleeding 😂😂. The scrape really was quite small.</p><p id="b6221720-e36c-4d67-a0ad-4ea530fd1043" class="">I got a comp and comms seat at MIT and am going to pay the fees tomorrow. Sorry for my lack of eloquence here, my brain is on the verge of shutting down. </p><p id="fccc6427-1355-412a-b9b8-68640461e470" class="">I also visited the campus and have started making contacts already. I think that&#x27;s all for this week. I&#x27;ll let the photos do the talking now.</p><p id="6777682d-ccaf-42a2-963b-d24b8aa8fbae" class="">I also crossed 100km on my cycle this week.</p><p id="e1bd71e7-ff75-441b-8bb2-9333953f8213" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Songs of the week - Second Date by Josh Fudge and dreaming by 1-800-lost</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="37a18c8f-53ff-4d7b-9cec-0ecdcd26e32c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-25-20-18-54-816_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-25-20-18-54-816_com.whatsapp.jpg"/></a></figure><figure id="1907e8e4-e18d-445d-b2fa-bb90b94c314a" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-25-20-15-44-474_com.google.android.apps.fitness.png"><img style="width:1063px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-25-20-15-44-474_com.google.android.apps.fitness.png"/></a></figure><figure id="d4da004d-b195-4763-964c-b2228ce28748" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-25-15-11-00-980_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-25-15-11-00-980_com.whatsapp.jpg"/></a></figure><figure id="5657137d-f409-4fa6-99a8-e63bb29e5747" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230623-WA0004.jpg"><img style="width:966px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230623-WA0004.jpg"/></a></figure><p id="3fc75a31-e357-4c61-8876-51c0e1a83a78" class="">Nothing like 2 am photos </p><figure id="905c4710-bb46-460e-976d-7aa734ff29c1" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230621-WA0023.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230621-WA0023.jpeg"/></a></figure><p id="f174da47-c9ea-4a86-ba49-a7df802d465f" class="">Cycled home in the rain on my new cycle</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">July 2 &amp; 9, 2023 - cyclical censoring</summary><div class="indented"><p id="3cd40a3f-50fe-46aa-9db2-2f7553f07563" class="">Ah another two weeks have passed. I’m now writing this on my new laptop (see old laptop with ssd) which feels much faster although I have to pay extra attention to grammar. Unfortunatley, you have been stripped of more rights as time has passed. Your mom apparently takes your phone for days on end and I kinda don’t blame her. you have goals and don’t have the self restraint needed for them. </p><p id="c669b615-d00a-4aea-805c-29a622ea7a1f" class="">I have been busy too. Although that’s not the reason you’re getting fewer texts. I’m actively trying to less pursuant? idk the word. Now I’ve just decided that I’ll slowly start reducing my texts if the other person does not respond for a day or so. When they respond again, the timer gets reset. </p><p id="5ca9a35a-1162-4f68-9f8a-0c8768fb4b41" class="">Now back to what I’ve been up to these weeks. I had to go to the VA office in Kavoor to get an income certificate for Dad. We’ve got an indication from the bank that we may be eligible for the CSIS interest subisdy. I’ve got work to do on that end too - It’s mostly just waiting because the wheels of Indian Bureaucracy spin slowly. </p><p id="4f2e48cb-d0df-4ae2-94c4-46bd3e526659" class="">I got so many awards and congratulations bruh. everyone knows me by now - at least the NPCs I meet at functions and all. I was called on two symbolically important stages in the past few days. </p><p id="a0a70a40-29c4-4bbd-a45a-9c47a7edd143" class="">One was the MCCS auditorium - it felt like a powerful move to go and shake hands with the woman who told me “You know how well you do in studies right?” when I went to ask for a leave. I also went to the school later to get my olympiad certificate. I met so many teachers bruh. It was well wishes all around. I also got my copy - the Saint’s copy - from her. I took immense joy in pointing out our names and times spent together. </p><p id="b6565000-3056-4221-87c3-8cd407d56731" class="">The other was MCODS Lecture Hall 1 in Attavar. I met the MIT Registrar there. I got a potted plant as a memento- not my cup of tea, hell, I can barely remeber to take care of myself, a plant is just a pipe dream.</p><p id="6831e7c7-69c1-4739-b534-65a60e7b0915" class="">I think that’s all. I’m too tired to think of proper outro so you just have to deal with it ig.</p><p id="a6ff1367-063c-47e9-8c76-83335d1cc2cb" class="">PS - I’m going to live in hostels in MIT and am currently in the middle of a shopping spree for new clothes. I also surprisingly got CSAIML in round 2. I really did not expect that. Tomorrow is round 3 results. I’m probably not going to get CSE. Also, I’ve taken the responsibility to fill all my forms myself. This has never happend before and my Dad is still apprehensive but opening up to the fact that I’m more street smart than my peers. Also I’ve set a new PR - 30.09 km walked, 42.5k steps. It feels big now. The fee payment was a headache. I’m glad its over now. </p><p id="5a769d55-c1a3-49c3-9c56-e3ac5cb10c6b" class=""><strong><strong><strong>Songs of the weeks - Crazy by Effee, New Waves by Ellie Dixon and Speed Dial No. 1 by Mcamp</strong></strong></strong></p><p id="7e9cc765-f54c-477a-81cd-baa32c03c876" class="">
+</p><figure id="d2d0a748-96d6-4560-8936-a5e4f1c474db" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230701_095319311.jpg"><img style="width:4624px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/PXL_20230701_095319311.jpg"/></a></figure><figure id="dc13b239-2307-4650-887e-ee3e5ecc228e" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/mtcarmel-pta-meeting-2023-20.jpg"><img style="width:640px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/mtcarmel-pta-meeting-2023-20.jpg"/></a></figure><figure id="ca412be0-4596-4013-a87b-ee8afee1690f" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/mtcarmel-pta-meeting-2023-11.jpg"><img style="width:640px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/mtcarmel-pta-meeting-2023-11.jpg"/></a></figure><figure id="b8078d24-1e99-46c9-929f-54e6d09d9395" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230708-WA0053.jpg"><img style="width:960px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230708-WA0053.jpg"/></a></figure><figure id="de710f07-1b1e-49d0-bd7c-b3c36e87e872" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230706-WA0040.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230706-WA0040.jpeg"/></a></figure><figure id="05d10a41-6881-421d-a5dc-6cc85e27f56e" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230703-WA0030.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230703-WA0030.jpeg"/></a></figure><figure id="2c92f81c-4ac8-443b-ac8c-62c2d8b45ce5" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230703-WA0026.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230703-WA0026.jpeg"/></a></figure><figure id="5838ee9e-1ba3-42b1-8155-2c40011dc171" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230701-WA0033.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230701-WA0033.jpeg"/></a></figure><figure id="35615741-0cb1-4411-87f6-4026e63cc39c" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230701-WA0016.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230701-WA0016.jpeg"/></a></figure><figure id="84ce97f8-3494-4794-a011-6a7fa67b2249" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-07-05-22-32-20-803_com.android.chrome.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-07-05-22-32-20-803_com.android.chrome.jpg"/></a></figure><figure id="cc78e4c6-a5bf-48e5-896f-120a70b41449" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-07-06-19-58-24-486_com.whatsapp.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-07-06-19-58-24-486_com.whatsapp.jpg"/></a></figure><figure id="c281b8a1-06f9-4dc1-9165-33b48448b75b" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-07-07-11-57-32-475_com.instagram.android.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-07-07-11-57-32-475_com.instagram.android.jpg"/></a></figure><figure id="d4987844-ca59-4c3a-8fe4-b52dd013890a" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-25-21-17-52-252_com.google.android.apps.fitness.png"><img style="width:1057px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-06-25-21-17-52-252_com.google.android.apps.fitness.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">July 16, 2023 - Severed phone lines</summary><div class="indented"><p id="9008703d-412c-4471-8694-927a14aac3ef" class="">I “cut contact” with you on Sunday night and it’s currently Tuesday Morning. Anyway I am finally in MIT. It still feels surreal. I’m doing a lot now. I’ve got my food in order. I went for a run today morning, went and attended my first two classes, signed up for the NCC and some other things that I can’t recall now.</p><p id="b2ef1245-d8bf-4b00-9d8a-87f21f7d57cf" class="">There was this walk the talk with the director of MIT. It was supposed to be scheduled for 6 30. I was up at 5, went for a run at 5 30 and then joined the director at 6 10. If you didn’t guess already, I was the first one there 🤷‍♂️. Then we went walking for about an hour and a half. I ALSO PLANTED A SAPLING. BRUH I PLANTED A TREE THAT I WILL SEE GROWING FOR THE NEXT 4 YEARS AND IT’LL BE SEEN FOR MUCH MUCH LONGER. </p><p id="4724f7de-0f4f-4fd3-8e89-857bf0bacfca" class="">I’ve also organised my calendar with all my classes and it feels much better to take my phone instead of relying on outdated technology. I haven’t got much more to say other than the crazy professors in the CSE dept. </p><p id="b2a41652-ba77-4824-b6d2-200dfa9cd950" class="">And for the title of this entry. Idk how to feel. I need to figure it out. I will not message you till you message me back tho. I understand where your mom comes from though. It’s a crucial phase of your life and you are nowhere as mentally hardened as me. It’s a tough process of change but now that I think of it, 11th and 12th did take away a lot of friends for me too. I would say that has made me more independent and colder. </p><p id="a30c2f43-61d6-46d2-a4aa-7aada367ef9d" class="">Aside from the somber talk, I’m enjoying my time here. I haven’t made any definite friends, but I’ve gained some contacts. </p><p id="0c8dd145-b984-4238-98be-4c7820fcd83a" class=""><strong><strong>Songs of the week - Spring and Waterfalls by Sarah Hemi, Out of Time by maeshima soshi, Need A Word With Cupid by Maya Delilah, Good Life by sokodomo</strong></strong></p><figure id="b4709867-878a-4657-ac8f-28d09f70c2d5" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230718-WA0017.jpeg"><img style="width:2160px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230718-WA0017.jpeg"/></a></figure><figure id="570ab0a1-be19-4cf5-b9d0-7dd7a65bfd39" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230718-WA0042.jpg"><img style="width:899px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/IMG-20230718-WA0042.jpg"/></a></figure><figure id="140664d2-ba9b-40d5-9da9-9b9f01b7b0db" class="image"><a href="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-07-17-21-17-36-373_com.google.android.calendar.jpg"><img style="width:1080px" src="The%20Good%20Jar%207a79255cb15c44c8b1179223ce4aa1f6/Screenshot_2023-07-17-21-17-36-373_com.google.android.calendar.jpg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">July 23 &amp; 26, 2023 - Walking the path to healing</summary><div class="indented"><p id="73d62206-7a08-42fb-bf91-0f8468b0c552" class="">It’s been 10 days from my last message to you. This will (hopefully) my last entry addressed to ‘you’. I have no idea if you or anyone will ever read this collection, but it makes it much easier to tell a story than to write a statement of facts. </p><p id="33ee843c-be8d-46d7-b01f-f1404db8ca1c" class="">I’ve had ten days to reflect on what has happened. And after a lot of thinking, I have concluded one thing. I did make mistakes. Mistakes that hurt me. I walked into a one-sided friendship. Where only I did the fixing. </p><p id="ef5dd7b3-fb2a-4f36-9028-72df06840e21" class="">If you haven’t caught on yet, here’s a news flash: I still walk a lot even though it pains me beyond measure. I do feel the need to keep making mistakes, but you were never one of them. I have noticed myself get a lot closer to my parents, although I do think it was inopportune of you to leave at the most transformative stage in my life, I think it has given me some clarity</p></div></details></div></article></body></html>
