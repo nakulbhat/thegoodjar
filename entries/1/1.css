@@ -1,0 +1,144 @@
+:root{
+    --textcolor: rgb(255, 255, 255);
+    --bgcolor: #000000;
+    --glasscolor: rgba(128, 128, 128, 0.473);
+    --lighttextcolor: gray;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lora;
+}
+        .header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 95%;
+            height: 60px;
+            margin-top: 20px;
+            margin-right: 2.5%;
+            margin-left: 2.5%;
+            background: rgba(255, 255, 255, .1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            z-index: 2;
+        }
+        a{
+            text-decoration: none;
+            color: var(--textcolor);
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .logo{
+            font-family: sacramento;
+            color: var(--textcolor);
+            font-size: 40px;
+            margin-left: 15px;
+            line-height: 60px;
+        }
+body{
+    min-height: 100vh;
+    margin-bottom: 1000px;
+    background: var(--bgcolor);
+    background-size: cover;
+    background-position: center;
+    animation: fadeInAnimation ease-in-out 0.5s;
+}
+p{ margin-top: 5px;
+    text-align: center;
+    color: var(--textcolor);
+}
+h1{
+    text-align: center;
+    color: var(--textcolor);
+    font-weight: 500;
+    font-size: 60px;
+    margin-top: 100px;
+}
+svg{
+    display: block;
+    margin-top: -105px;
+    margin-bottom: -45px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+        height: 10%;
+        color: var(--textcolor);
+    }
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+         }
+    }
+
+/*Custom entry code from below*/
+.hero{
+    padding: 20px;
+    background:  rgba(255, 255, 255, .1);
+    margin-top: 200px;
+    color: var(--textcolor);
+    text-align: center;
+    font-size: 90px;
+    width: 95%;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    z-index: -1;
+}
+.herodate{
+    margin-top: 20px;
+    color: var(--lighttextcolor);
+    text-align: center;
+    font-size: 25px;
+}
+.entry{
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    margin: auto;
+    margin-top: 200px;
+    font-size: 25px;
+}
+p.songs{
+    margin-top: 150px;
+    font-weight: bold;
+    font-size: 70px;
+    font-family: Raleway;
+}
+p.songsubtitle{
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: Lora;
+    color: var(--lighttextcolor);
+}
+.songcontainer{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 70px;
+}
+.songentry{
+    width: 300px;
+margin-top: 25px;
+
+}
+.songname{
+    margin-top: 25px;
+    font-size: 35px;
+
+}
+.songentry img{
+    width: 200px;
+    object-fit: contain;
+}
+.songartist{
+    color: var(--lighttextcolor);
+
+}
